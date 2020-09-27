@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div data-controller="search" class="w-100">
+    <nav class="navbar navbar-light bg-light">
+      <form
+      class="form-inline"
+      data-action="ajax:success->search#result"
+        data-action="ajax:error->search#error"
+        data-target="search.form"
+        data-remote="true"
+        method="post"
+        action="<%= search_filter_path %>"
+        >
+        <input
+        class="form-control mr-sm-2"
+        aria-label="Search"
+        data-action="keyup->search#search"
+          data-target="search.query"
+          type="search" 
+          name="query" 
+          value=""
+          placeholder="Search"
+          />
+        </form>
+      </nav>
+
+      <div class="container" data-target="search.display">
+        <%= render partial: 'search', collection: @users %>
+      </div>
+      
+    </div>
+  </div>

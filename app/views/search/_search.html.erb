@@ -1,0 +1,8 @@
+<div class="card-columns m-5">
+  <% @users.each do | user | %>
+    <%= render partial: 'shared/card', locals: { user: user }  %>
+  <% end %>
+</div>
+
+
+ 

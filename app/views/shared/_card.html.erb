@@ -1,0 +1,31 @@
+<div class="card">
+  <img class="card-img-top img-thumbnail" src="https://www.nicepng.com/png/full/608-6080578_png-file-svg-icono-de-persona-png.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= user.name %></h5>
+    <p class="card-text">
+      <ul>
+        <li><strong>Email:</strong> <%= user.email %></li>
+        <li><strong>Country:</strong> <%= user.country %></li>
+      </ul>
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+    <strong>Skills</strong>
+    <br/>
+      <% user.skills.each do | skill | %>
+        <span class="badge badge-pill badge-primary">
+          <%= skill.name %>
+        </span>
+      <% end %>
+    </li>
+    <li class="list-group-item">
+    <strong>Rating</strong>
+    <br/>
+     <% 5.times.each_with_index  do | rating, index | %>
+        <span class="<%= (user.rating.value.to_i >= index + 1) ? "fa fa-star checked" : "fa fa-star unchecked"  %>"></span>
+      <% end %>
+
+    </li>
+  </ul>
+</div>
