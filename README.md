@@ -5,24 +5,28 @@ Proyecto Web en Ruby on Rails 6 para busqueda de perfiles.
 ## Instalación
 
 Descargar el proyecto y restaurar los packages.
+Desde la consola ejecutar:
 ```bash
-nuget restore MySolution.sln
+bundle install
 ```
 
 ## Configuraciones
-En el archivo appsettings.json en la propiedad RepositoryDB reemplazar el valor de la propiedad por la cadena conexión de la base de datos de su proyecto.
+En el archivo config/database.yml en la propiedad development configurar la cadena de conexión a la base de datos de su maquina.
 
-*Nota: La cadena debe ser de SQL SERVER*
+*Nota: La cadena debe ser de POSTGRESQL*
 
 
-```c#
+```yml
 
- "ConnectionStrings": {
-   "RepositoryDB": "#CADENA-CONEXIÓN -SQL-SERVER#"
- }
+development:
+  <<: *default
+  database: Challenge_development
+  username: postgres <-- reeplazar con el local
+  password: password <-- reeplazar con el local
+  host: localhost 
 
 ```
-**Nota: Las migraciones y la creación de la base de datos (si no existe) se ejecutan automáticamente al lanzar la aplicación, si desea ejecutar este proceso manualmente a continuación se explica como.**
+**Creación y llenado de la base de datos**
 
 
 1. Las migraciones de la aplicación ya están incluidas en la carpeta migrations, si se desea generar unas nuevas eliminar la migración existente y  en la consola de administración de paquetes de nuget ejecutar:
