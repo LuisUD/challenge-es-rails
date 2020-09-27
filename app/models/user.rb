@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_one :rating
 
     include Elasticsearch::Model
-    include Elasticsearch::Model::Callbacks
+    #include Elasticsearch::Model::Callbacks
 
     settings do
         mappings dynamic: false do
