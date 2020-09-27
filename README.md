@@ -28,26 +28,50 @@ development:
 ```
 **Creación y llenado de la base de datos**
 
+Debe tener previamente instalada la ultima version de Rails.
 
-1. Las migraciones de la aplicación ya están incluidas en la carpeta migrations, si se desea generar unas nuevas eliminar la migración existente y  en la consola de administración de paquetes de nuget ejecutar:
+1. Las migraciones de la aplicación ya están incluidas en la carpeta migrations.
+2. Crear la base de datos:
 ```bash
-pm> add-migration NombreMigracion
+> rails db:create
 ```
-2. Para aplicar la migración:
+3. Para aplicar las migraciónes:
 ```bash
-pm> Update-database
+> rails db:migrate
+```
+4. Para cargar la base de datos (seed):
+```bash
+> rails db:seed
+```
+**Creación de Index de ElasticSearch e importación**
+
+Para este paso es necesario tener instalada la version local de ElasticSearch la cual puede descargar de
+[https://www.elastic.co/es/downloads/elasticsearch](https://www.elastic.co/es/downloads/elasticsearch)
+
+1. En la terminal ejecutamos el siguiente comando para abrir la consola de rails:
+```bash
+> rails c
+```
+2. dentro de la consola de rails ejecutar el siguiente comando para crear el index de ES:
+```bash
+> User.__elasticsearch__.create_index!(force: true)
+```
+3. dentro de la consola de rails ejecutar el siguiente comando para cargar los datos al index de ES:
+```bash
+> User.import
+```
+4. salimos ejecutado:
+```bash
+> exit
 ```
 
 ## Ejecutar
 
-**Nota: La api ya se encuentra publicada en la url publica [https://libraryadmin.azurewebsites.net](https://libraryadmin.azurewebsites.net/swagger) 
-y configurada con el documentador swagger lista para ser testeada, para lanzarla localmente se explica a continuación.**
+**Nota: La aplicación ya se encuentra publicada en la url publica [https://search-es-challenge.herokuapp.com/](https://search-es-challenge.herokuapp.com/) en heroku**
 
 #### Localmente
-Desde el IDE Visual studio, menu Depurar > Iniciar depuración, o tecla F5 para lanzar la aplicación en modo local.
-
-
-#### Consumo de las API
-
-La api REST esta configurada con JWT por lo tanto es necesario que antes de consumir cualquiera de las api se consuma el metodo Login para obtener el token que posteriormente debe enviarse en la cabecera de las peticiones a la api.
+Desde consola ejecutar
+```bash
+> rails s
+```
 
