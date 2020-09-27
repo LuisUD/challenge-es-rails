@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'elasticsearch-model', '~> 7.1.0'
 gem 'elasticsearch-rails', '~> 7.1.0'
 gem 'bonsai-elasticsearch-rails'
+gem 'font_awesome5_rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
