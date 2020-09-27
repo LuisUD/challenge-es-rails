@@ -23,7 +23,7 @@
     <strong>Rating</strong>
     <br/>
      <% 5.times.each_with_index  do | rating, index | %>
-        <span class="<%= (user.rating.value.to_i >= index + 1) ? "fa fa-star checked" : "fa fa-star unchecked"  %>"></span>
+        <span class="<%= (user.rating.value.to_i >= index + 1) ? "fas fa-star checked" : "fas fa-star unchecked"  %>"></span>
       <% end %>
 
     </li>
